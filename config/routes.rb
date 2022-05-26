@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root "cocktails#index"
+
   resources :follows
   resources :barflies
   resources :cocktail_comments
