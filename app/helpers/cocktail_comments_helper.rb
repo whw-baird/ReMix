@@ -1,0 +1,2 @@
+module CocktailCommentsHelper
+end

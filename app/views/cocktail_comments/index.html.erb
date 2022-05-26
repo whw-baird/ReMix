@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cocktail Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cocktail</th>
+      <th>User</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cocktail_comments.each do |cocktail_comment| %>
+      <tr>
+        <td><%= cocktail_comment.cocktail_id %></td>
+        <td><%= cocktail_comment.user_id %></td>
+        <td><%= cocktail_comment.body %></td>
+        <td><%= link_to 'Show', cocktail_comment %></td>
+        <td><%= link_to 'Edit', edit_cocktail_comment_path(cocktail_comment) %></td>
+        <td><%= link_to 'Destroy', cocktail_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cocktail Comment', new_cocktail_comment_path %>

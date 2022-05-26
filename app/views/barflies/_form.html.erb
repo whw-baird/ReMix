@@ -1,0 +1,32 @@
+<%= form_with(model: barfly) do |form| %>
+  <% if barfly.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(barfly.errors.count, "error") %> prohibited this barfly from being saved:</h2>
+
+      <ul>
+        <% barfly.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bar_id %>
+    <%= form.text_field :bar_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_bartender %>
+    <%= form.check_box :is_bartender %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cocktail Ingredients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cocktail</th>
+      <th>Ingredient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cocktail_ingredients.each do |cocktail_ingredient| %>
+      <tr>
+        <td><%= cocktail_ingredient.cocktail_id %></td>
+        <td><%= cocktail_ingredient.ingredient_id %></td>
+        <td><%= link_to 'Show', cocktail_ingredient %></td>
+        <td><%= link_to 'Edit', edit_cocktail_ingredient_path(cocktail_ingredient) %></td>
+        <td><%= link_to 'Destroy', cocktail_ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cocktail Ingredient', new_cocktail_ingredient_path %>

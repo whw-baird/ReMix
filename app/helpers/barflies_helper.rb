@@ -1,0 +1,2 @@
+module BarfliesHelper
+end

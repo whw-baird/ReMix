@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cocktail:</strong>
+  <%= @cocktail_comment.cocktail_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @cocktail_comment.user_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @cocktail_comment.body %>
+</p>
+
+<%= link_to 'Edit', edit_cocktail_comment_path(@cocktail_comment) %> |
+<%= link_to 'Back', cocktail_comments_path %>

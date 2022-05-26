@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bar:</strong>
+  <%= @barfly.bar_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @barfly.user_id %>
+</p>
+
+<p>
+  <strong>Is bartender:</strong>
+  <%= @barfly.is_bartender %>
+</p>
+
+<%= link_to 'Edit', edit_barfly_path(@barfly) %> |
+<%= link_to 'Back', barflies_path %>
