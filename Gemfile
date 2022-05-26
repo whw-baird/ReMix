@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
+# Rails_db to visualize database
+gem 'rails_db'
 # Draft generator
 gem 'draft_generators'
 # Devise
