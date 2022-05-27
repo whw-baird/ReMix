@@ -3,12 +3,12 @@ class CocktailPolicy
 
   def initialize(user, cocktail)
     @user = user
-    @photo = cocktail
+    @cocktail = cocktail
   end
 
   def show?
-    user == cocktail.owner ||
-      !cocktail.owner.private? ||
-      cocktail.owner.followers.include?(user)
+    user == cocktail.user ||
+      !cocktail.user.private? ||
+      cocktail.user.followers.include?(current_user)
   end
 end

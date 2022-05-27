@@ -1,32 +1,27 @@
-<%= form_with(model: cocktail_comment) do |form| %>
-  <% if cocktail_comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cocktail_comment.errors.count, "error") %> prohibited this cocktail_comment from being saved:</h2>
+<li class="list-group-item">
+  <%= form_with(model: cocktail_comment) do |form| %>
+    <% if cocktail_comment.errors.any? %>
+      <div id="error_explanation">
+        <ul class="list-unstyled">
+          <% cocktail_comment.errors.each do |error| %>
+            <li>
+              <div class="alert alert-danger" role="alert">
+                <%= error.full_message %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.hidden_field :cocktail_id %>
 
-      <ul>
-        <% cocktail_comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="form-group">
+      <%= form.label :body, class: "sr-only" %>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-outline-secondary btn-block" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :cocktail_id %>
-    <%= form.text_field :cocktail_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</li>
