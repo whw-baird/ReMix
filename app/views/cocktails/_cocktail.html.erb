@@ -1,0 +1,44 @@
+<div id="<%= dom_id(cocktail) %>" class="card">
+  <div class="card-body py-3 d-flex align-items-center justify-content-between">
+    <h2 class="h5 m-0 p-0 d-flex align-items-center">
+      <%= link_to cocktail.name, cocktails_path(cocktail), class: "text-dark" %>
+    </h2>
+
+    <div>
+      <% if current_user == cocktail.user %>
+        <%= link_to edit_cocktail_path(cocktail), class: "btn btn-link btn-sm text-muted" do %>
+          <i class="fas fa-edit fa-fw"></i>
+        <% end %>
+      
+        <%= link_to cocktail, method: :delete, class: "btn btn-link btn-sm text-muted" do %>
+          <i class="fas fa-trash fa-fw"></i>
+        <% end %>
+      <% end %>
+      
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="mb-3 d-flex justify-content-between">
+      <ul class="card-text">
+        <% cocktail.cocktail_ingredients.each do |mixer| %>
+          <li><%= mixer.ingredient.name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="mb-3 d-flex justify-content-between">
+      <%= cocktail.recipe %>
+    </div>
+  </div>
+
+  <% if policy(cocktail).show? %>
+    <ul id="<%= dom_id(cocktail) %>_comments" class="list-group list-group-flush">
+      <% cocktail.comments.each do |comment| %>
+        <%= render "cocktail_comments/comment", comment: comment %>
+      <% end %>
+      
+      <%= render "cocktail_comments/form", comment: cocktail.comments.build %>
+    </ul>
+  <% end %>
+
+</div>

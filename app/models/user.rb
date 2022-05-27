@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :cocktails, dependent: :destroy
+  has_many :own_cocktails, class_name: "Cocktail", dependent: :destroy
   has_many :barflies, dependent: :destroy
   has_many :follows, dependent: :destroy
   has_many :cocktail_comments, dependent: :destroy
@@ -14,4 +14,11 @@ class User < ApplicationRecord
   has_many :followers, through: :follows
   has_many :feed, through: :leaders, source: :cocktails
 
+  validates :username,
+    presence: true,
+    uniqueness: true,
+    format: { 
+      with: /\A[\w_\.]+\z/i,
+      message: "can only contain letters, numbers, periods, and underscores"
+    }
 end

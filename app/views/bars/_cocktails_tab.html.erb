@@ -1,0 +1,7 @@
+<% cocktails.each do |cocktail| %>
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <%= render "cocktails/cocktail", cocktail: cocktail %>
+    </div>
+  </div>
+<% end %>

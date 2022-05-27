@@ -3,7 +3,7 @@ class Cocktail < ApplicationRecord
   belongs_to :bar
 
   has_many :cocktail_ingredients
-  has_many :cocktail_comments
+  has_many :comments, class_name: "CocktailComment", dependent: :destroy
 
   accepts_nested_attributes_for :cocktail_ingredients, allow_destroy: :true
 end

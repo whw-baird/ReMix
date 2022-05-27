@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Bar name:</strong>
-  <%= @bar.bar_name %>
-</p>
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+    <h2><%= @bar.bar_name %></h2>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <h4><%= @bar.owner.username %>'s bar</h4>
+  </div>
+  <div class="col-md-6 offset-md-3">
+      <%= @bar.about %>
+  </div>
+</div>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @bar.owner_id %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @bar.about %>
-</p>
-
-<%= link_to 'Edit', edit_bar_path(@bar) %> |
-<%= link_to 'Back', bars_path %>
+<div>
+  <%= render "bars/cocktails_tab", bar: @bar, cocktails: @bar.own_cocktails %>
+</div>

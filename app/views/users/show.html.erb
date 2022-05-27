@@ -1,6 +1,17 @@
 <div class="row mb-4">
   <div class="col-md-6 offset-md-3">
-    <%= @user.username %>
+    <h2><%= @user.username %></h2>
+  </div>
+  <div class="col-md-6 offset-md-3">
+      <%= @user.bio %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+  <% if @user != current_user %>
+      <%= render "follows/follow_unfollow", leader: @user %>
+    <% end %>
   </div>
 </div>
 
+<% if policy(@user).show? %>
+  <%= render "users/cocktails_tab", user: @user, cocktails: @user.own_cocktails %>
+<% end %>
