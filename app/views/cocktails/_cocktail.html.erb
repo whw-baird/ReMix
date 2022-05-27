@@ -34,10 +34,11 @@
   <% if policy(cocktail).show? %>
     <ul id="<%= dom_id(cocktail) %>_comments" class="list-group list-group-flush">
       <% cocktail.comments.each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
+        <%= render "cocktail_comments/comment", comment: comment %>
       <% end %>
       
       <%= render "cocktail_comments/form", comment: cocktail.comments.build %>
     </ul>
   <% end %>
+
 </div>
