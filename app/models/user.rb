@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :cocktails, dependent: :destroy
+  has_many :own_cocktails, class_name: "Cocktail", dependent: :destroy
   has_many :barflies, dependent: :destroy
   has_many :follows, dependent: :destroy
   has_many :cocktail_comments, dependent: :destroy

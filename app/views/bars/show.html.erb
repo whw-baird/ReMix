@@ -7,7 +7,7 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @bar.owner_id %>
+  <%= link_to @bar.owner.username, user_path(@bar.owner.username) %>
 </p>
 
 <p>

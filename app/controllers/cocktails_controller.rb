@@ -8,6 +8,7 @@ class CocktailsController < ApplicationController
 
   # GET /cocktails/1 or /cocktails/1.json
   def show
+    authorize @cocktail
   end
 
   # GET /cocktails/new
