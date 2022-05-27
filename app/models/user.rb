@@ -14,4 +14,11 @@ class User < ApplicationRecord
   has_many :followers, through: :follows
   has_many :feed, through: :leaders, source: :cocktails
 
+  validates :username,
+    presence: true,
+    uniqueness: true,
+    format: { 
+      with: /\A[\w_\.]+\z/i,
+      message: "can only contain letters, numbers, periods, and underscores"
+    }
 end

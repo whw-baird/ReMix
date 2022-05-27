@@ -1,0 +1,9 @@
+<% if Follow.where(leader: @user, follower: current_user).exists? %>
+  <div>
+    Following <%= leader %>.
+  </div>
+<% else %>
+  <div>
+    <%= render "follows/form" %>
+  </div>
+<% end %>
