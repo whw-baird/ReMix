@@ -4,7 +4,7 @@
 
 namespace :slurp do
   desc "import Category data"
-  task transactions: :environment do
+  task category_import: :environment do
     require "csv"
 
     csv_text = File.read(Rails.root.join("lib", "Category.csv"), encoding: 'bom|utf-8')
@@ -18,7 +18,7 @@ namespace :slurp do
       puts "#{c.id}, #{c.name} saved"
     end
 
-    puts "There are now #{Transaction.count} rows in the transaction table"
+    # puts "There are now #{Transaction.count} rows in the transaction table"
   end
 
 end
