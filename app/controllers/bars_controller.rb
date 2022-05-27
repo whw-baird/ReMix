@@ -22,6 +22,7 @@ class BarsController < ApplicationController
   # POST /bars or /bars.json
   def create
     @bar = Bar.new(bar_params)
+    @bar.owner = current_user
 
     respond_to do |format|
       if @bar.save

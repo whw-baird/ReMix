@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="actions">
+    <%= form.hidden_field :user_id %>
+    <%= hidden_field_tag :user_id, value: current_user %>
   </div>
 
   <div class="field">
-    <%= form.label :bar_id %>
-    <%= form.text_field :bar_id %>
+    <%= form.hidden_field :bar_id %>
+    <%= hidden_field_tag :bar_id %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :recipe %>
-    <%= form.text_field :recipe %>
+    <%= form.text_area :recipe %>
   </div>
 
   <div class="actions">
