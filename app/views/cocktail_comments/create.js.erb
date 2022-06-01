@@ -1,0 +1,9 @@
+var cocktail_comment = $("<%= j(render @cocktail_comment) %>");
+
+cocktail_comment.hide();
+
+$("#<%= dom_id(@cocktail_comment.photo) %> #new_cocktail_comment_form").before(cocktail_comment);
+
+cocktail_comment.slideDown();
+
+$("#<%= dom_id(@cocktail_comment.photo) %> #new_cocktail_comment_form #cocktail_comment_body").val("");

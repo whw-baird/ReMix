@@ -1,6 +1,6 @@
 class Cocktail < ApplicationRecord
   belongs_to :user
-  belongs_to :bar
+  belongs_to :bar, optional: true
 
   has_many :cocktail_ingredients
   has_many :comments, class_name: "CocktailComment", dependent: :destroy

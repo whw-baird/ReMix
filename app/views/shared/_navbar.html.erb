@@ -7,23 +7,11 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to feed_path(current_user.username), class: "nav-link" do %>
-              <i class="fas fa-users fa-fw"></i></i>
-
-              Feed
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to new_cocktail_path, class: "nav-link" do %>
-              <i class="fas fa-plus-circle"></i>
+              <i class="fa fa-plus-circle"></i>
 
               Build a cocktail
             <% end %>
@@ -33,6 +21,11 @@
               <i class="fas fa-plus-circle"></i>
 
               Set up a bar
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to bars_path, class: "nav-link" do %>
+              My bars
             <% end %>
           </li>
           <li class="nav-item">
