@@ -22,11 +22,13 @@ class CocktailsController < ApplicationController
 
   # POST /cocktails or /cocktails.json
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = Cocktail.new(cocktail_params.except(:ingredient_id))
     @cocktail.user = current_user
+    @ingredients = Ingredient.all
 
     respond_to do |format|
       if @cocktail.save
+        @cocktail.cocktail_ingredients.create(ingredient_id: cocktail_params.fetch(:ingredient_id))
         format.html { redirect_to cocktail_url(@cocktail), notice: "Cocktail was successfully created." }
         format.json { render :show, status: :created, location: @cocktail }
       else
@@ -67,6 +69,6 @@ class CocktailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cocktail_params
-      params.require(:cocktail).permit(:user_id, :bar_id, :name, :recipe)
+      params.require(:cocktail).permit(:user_id, :bar_id, :name, :recipe, :ingredient_id)
     end
 end

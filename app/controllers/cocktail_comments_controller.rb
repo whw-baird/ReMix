@@ -25,7 +25,7 @@ class CocktailCommentsController < ApplicationController
 
     respond_to do |format|
       if @cocktail_comment.save
-        format.html { redirect_to cocktail_url(@cocktail_comment.cocktail.name), notice: "Cocktail comment was successfully created." }
+        format.html { redirect_to cocktail_url(@cocktail_comment.cocktail), notice: "Cocktail comment was successfully created." }
         format.json { render :show, status: :created, location: @cocktail_comment }
         format.js
       else
@@ -55,6 +55,7 @@ class CocktailCommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to cocktail_comments_url, notice: "Cocktail comment was successfully destroyed." }
       format.json { head :no_content }
+      format.js
     end
   end
 

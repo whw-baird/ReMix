@@ -1,9 +1,11 @@
-var cocktail_comment = $("<%= j(render @cocktail_comment) %>");
+console.log("<%= @cocktail_comment.body %>")
 
-cocktail_comment.hide();
+var new_cocktail_comment = $("<%= j(render "cocktail_comments/comment", @cocktail_comment) %>");
 
-$("#<%= dom_id(@cocktail_comment.photo) %> #new_cocktail_comment_form").before(cocktail_comment);
+new_cocktail_comment.hide();
 
-cocktail_comment.slideDown();
+$("#<%= dom_id(@cocktail_comment.cocktail) %> #new_cocktail_comment_form").before(cocktail_comment);
+
+new_cocktail_comment.slideDown(500);
 
 $("#<%= dom_id(@cocktail_comment.photo) %> #new_cocktail_comment_form #cocktail_comment_body").val("");

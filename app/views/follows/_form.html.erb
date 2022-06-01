@@ -1,4 +1,4 @@
-<%= form_with(model: @follow, class: "d-inline-block") do |form| %>
+<%= form_with(model: follow, class: "d-inline-block", local: false) do |form| %>
 
   <%= form.hidden_field :leader_id, value: @user %>
   <%= form.hidden_field :follower_id, value: current_user %>
