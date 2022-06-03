@@ -1,6 +1,6 @@
 <% if Follow.where(leader: @user, follower: current_user).exists? %>
   <div>
-    Following <%= leader %>.
+    Following <%= leader.username %>.
   </div>
 <% else %>
   <div>

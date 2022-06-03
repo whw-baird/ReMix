@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: cocktail_ingredients
+#
+#  id            :bigint           not null, primary key
+#  cocktail_id   :bigint           not null
+#  ingredient_id :bigint           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
 require "test_helper"
 
 class CocktailIngredientTest < ActiveSupport::TestCase

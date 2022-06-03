@@ -25,9 +25,10 @@ class CocktailCommentsController < ApplicationController
 
     respond_to do |format|
       if @cocktail_comment.save
+        format.js
         format.html { redirect_to cocktail_url(@cocktail_comment.cocktail), notice: "Cocktail comment was successfully created." }
         format.json { render :show, status: :created, location: @cocktail_comment }
-        format.js
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @cocktail_comment.errors, status: :unprocessable_entity }
@@ -53,7 +54,7 @@ class CocktailCommentsController < ApplicationController
     @cocktail_comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to cocktail_comments_url, notice: "Cocktail comment was successfully destroyed." }
+      # format.html { redirect_to cocktail_comments_url, notice: "Cocktail comment was successfully destroyed." }
       format.json { head :no_content }
       format.js
     end

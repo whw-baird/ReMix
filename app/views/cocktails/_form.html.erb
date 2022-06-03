@@ -29,6 +29,10 @@
   </div>
 
   <div class="field">
+    <%= form.collection_select :ingredient_id, Ingredient.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :recipe %>
     <%= form.text_area :recipe %>
   </div>

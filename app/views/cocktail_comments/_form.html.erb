@@ -1,5 +1,5 @@
 <li id="<%= dom_id(cocktail_comment.cocktail) %>_cocktail_comment_form" class="list-group-item">
-  <%= form_with(model: cocktail_comment, remote: false) do |form| %>
+  <%= form_with(model: cocktail_comment, local: false) do |form| %>
     <%= form.hidden_field :cocktail_id %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     

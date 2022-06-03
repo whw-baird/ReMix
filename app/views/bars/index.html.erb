@@ -1,31 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Bar name</th>
-      <th>Owner</th>
-      <th>About</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bars.each do |bar| %>
-      <tr>
-        <td><%= bar.bar_name %></td>
-        <td><%= bar.owner_id %></td>
-        <td><%= bar.about %></td>
-        <td><%= link_to 'Show', bar %></td>
-        <td><%= link_to 'Edit', edit_bar_path(bar) %></td>
-        <td><%= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Bar', new_bar_path %>
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="display-4">
+      Bars you frequent
+    </h1>
+  </div>
+</div>
+<% if current_user.followed_bars.exists? %>
+  <% current_user.followed_bars.each do |bar| %>
+    <div class="row mb-4">
+      <div class="col-md-6 offset-md-3">
+        <%= render "bars/bar", bar: bar %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="row mb-4">
+    You aren't following any bars!
+  </div>
+<% end %>

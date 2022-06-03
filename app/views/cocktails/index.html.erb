@@ -37,7 +37,17 @@
     <h1 class="display-4">
       Feed
     </h1>
-
-    <p class="lead text-muted">Recent cocktails from people you follow</p>
+    <% if current_user.leaders.cocktails.exists? %>
+      <p class="lead text-muted">Recent cocktails from people you follow</p>
+      <% current_user.leaders.own_cocktails.each do %>
+        <div class="row mb-4">
+          <div class="col-md-6 offset-md-3">
+            <%= render "cocktails/cocktail", cocktail: cocktail %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      You aren't following anyone!
+    <% end %>
   </div>
 </div>

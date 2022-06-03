@@ -8,7 +8,7 @@
   <div class="col-md-6 offset-md-3">
   <% if @user != current_user %>
       <%= render "follows/follow_unfollow", follower: current_user, leader: @user %>
-    <% end %>
+  <% end %>
   </div>
 </div>
 
